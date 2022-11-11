@@ -53,11 +53,15 @@ print(sorted(zip(unique, counts)))
 total_double_matched = counts[2:].sum()
 print('Total double matched : {}'.format(total_double_matched))
 #print(all_arr)
+#for maxwert in np.nditer(all_arr):
+#   if maxwert == maximalwert:
+#       counter +=1
 
-for maxwert in np.nditer(all_arr):
-   if maxwert == maximalwert:
-       counter +=1
 
+#print(counter)
+#print(counter)
+#test = [1,2,3,4,5]
+#for x in range(len(test)-1):
+#    lösung = test[x]+test[x+1]
 
-print(counter)
-
+#print(lösung)
