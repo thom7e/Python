@@ -2,11 +2,11 @@ import requests
 import json
 from datetime import datetime
 import smtplib, ssl
-from email import encoders
-from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from string import Template
+import schedule
+import time
 
 
 with open("C:\\Users\\thoma\\OneDrive\\Python\\daten.txt") as f:
@@ -106,3 +106,10 @@ def send_mail():
 
 send_mail()
 print("mails have been sent")
+
+schedule.every().day.at("06:00").do(lambda: send_mail())
+# planunterlage(source,destination)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
