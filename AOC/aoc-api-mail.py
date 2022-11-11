@@ -9,10 +9,12 @@ from email.mime.multipart import MIMEMultipart
 from string import Template
 
 
-with open("C:\\Users\\thoma\\OneDrive\\Python\\pwgoogle.txt") as f:
-    pw = f.read()
-with open("C:\\Users\\thoma\\OneDrive\\Python\\coookie.txt") as c:
-    cooky = f.read()
+with open("C:\\Users\\thoma\\OneDrive\\Python\\daten.txt") as f:
+    dates = f.read().splitlines()
+pw = dates[0]
+cooky = dates[1]
+mail = dates[2]
+
 
 #cookies
 cookie = {"session":f"{cooky}"}
@@ -77,7 +79,6 @@ html = """\
   </body>
 </html>
 """
-
 
 result = "<br><br>".join(results)
 
