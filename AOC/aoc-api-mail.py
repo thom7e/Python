@@ -19,7 +19,7 @@ mail = dates[2]
 print("logging in")
 #cookies
 cookie = {"session":f"{cooky}"}
-url = "https://adventofcode.com/2021/leaderboard/private/view/1061043.json"
+url = "https://adventofcode.com/2022/leaderboard/private/view/1061043.json"
 r = requests.get(url,cookies=cookie)
 def data_converting(url, cookie):
     content = r.content
@@ -76,7 +76,7 @@ def send_mail():
            Folgendes gibt es heute zu berichten: <br><br>
            $code <br><br>
            Die Übersicht über das Tableu findet ihr hier: <br>
-           <a href="https://adventofcode.com/2021/leaderboard/private/view/1061043">Leaderbord</a> 
+           <a href="https://adventofcode.com/2022/leaderboard/private/view/1061043">Leaderbord</a> 
            <br><br>
            Liebe Grüße thom7e
         </p>
@@ -107,7 +107,7 @@ def send_mail():
 send_mail()
 print("mails have been sent")
 
-schedule.every().day.at("06:00").do(lambda: send_mail())
+schedule.every().day.at("05:55").do(lambda: send_mail())
 # planunterlage(source,destination)
 
 while True:

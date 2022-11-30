@@ -72,7 +72,7 @@ pid:163033394
 eyr:2040 pid:181cm
 iyr:1928 hgt:76cm hcl:d8aafb byr:1949 cid:275 ecl:xry
 
-hcl:#cfa07d ecl:oth byr:1948 eyr:2021
+hcl:#cfa07d ecl:oth byr:1948 eyr:2020
 pid:719690182 hgt:179cm iyr:2020
 
 byr:1939 cid:266
@@ -117,7 +117,7 @@ hcl:z
 hgt:167 pid:154cm
 byr:2007
 
-pid:761333244 hgt:180cm iyr:2017 hcl:#18171d eyr:2021
+pid:761333244 hgt:180cm iyr:2017 hcl:#18171d eyr:2020
 byr:1983
 cid:67 ecl:oth
 
@@ -151,7 +151,7 @@ eyr:2034
 hcl:z
 
 pid:629486472 cid:140
-hgt:192cm eyr:2020 hcl:#b6652a iyr:1988 byr:2021 ecl:brn
+hgt:192cm eyr:2020 hcl:#b6652a iyr:1988 byr:2020 ecl:brn
 
 byr:1955 iyr:2015 eyr:2030
 ecl:gry hcl:z pid:6550198754
@@ -382,7 +382,7 @@ byr:1934
 hgt:186cm
 cid:289 ecl:gry
 
-hcl:#fffffd pid:376300524 hgt:155cm byr:1964 iyr:2017 eyr:2021 ecl:grn
+hcl:#fffffd pid:376300524 hgt:155cm byr:1964 iyr:2017 eyr:2020 ecl:grn
 
 hcl:a5d4dc byr:2006 cid:165 ecl:#db800f iyr:2029 pid:0199789970 eyr:1961 hgt:61cm
 
@@ -448,7 +448,7 @@ iyr:1966
 
 byr:1978 ecl:oth iyr:2011 hgt:164cm eyr:2027 hcl:#cfa07d
 
-hgt:75cm hcl:#1e8137 byr:1986 ecl:blu eyr:2022 pid:796688423
+hgt:75cm hcl:#1e8137 byr:1986 ecl:blu eyr:2021 pid:796688423
 iyr:2012
 
 eyr:2026
@@ -538,7 +538,7 @@ byr:2028
 eyr:2024
 pid:792478385 ecl:grn
 
-hcl:#efcc98 iyr:2012 pid:020039675 eyr:2021 byr:1974 hgt:156cm
+hcl:#efcc98 iyr:2012 pid:020039675 eyr:2020 byr:1974 hgt:156cm
 ecl:hzl
 
 cid:123 hcl:#7d3b0c
@@ -817,7 +817,7 @@ eyr:2020 pid:223927808
 
 byr:1926
 pid:717704850
-hcl:#623a2f eyr:2022 hgt:64in iyr:2018 ecl:gry
+hcl:#623a2f eyr:2021 hgt:64in iyr:2018 ecl:gry
 
 eyr:2023 byr:1954
 hgt:169cm
@@ -860,7 +860,7 @@ hgt:173cm eyr:2022
 iyr:2016 byr:2001
 ecl:hzl pid:239803460
 
-hcl:#b6652a ecl:oth eyr:2021 hgt:167cm pid:401266644 iyr:1969 byr:1974
+hcl:#b6652a ecl:oth eyr:2020 hgt:167cm pid:401266644 iyr:1969 byr:1974
 
 eyr:2030 pid:581963885
 hcl:#64cb23
@@ -932,7 +932,7 @@ eyr:2028
 hcl:#341e13 ecl:amb hgt:160cm cid:121
 iyr:2015 pid:963848397
 
-iyr:2013 hcl:#866857 pid:#db8648 eyr:2021 ecl:gry
+iyr:2013 hcl:#866857 pid:#db8648 eyr:2020 ecl:gry
 byr:1975
 hgt:153cm cid:114
 
@@ -946,7 +946,7 @@ byr:1975 eyr:2027
 ecl:grn iyr:2019 hcl:#0afad1
 hgt:66in
 
-byr:1935 hcl:#cfa07d hgt:173cm ecl:brn eyr:2021 iyr:2019
+byr:1935 hcl:#cfa07d hgt:173cm ecl:brn eyr:2020 iyr:2019
 
 cid:66 eyr:2024 hcl:#efcc98 byr:2002 iyr:2010
 hgt:176cm pid:697153153 ecl:amb

@@ -1,5 +1,5 @@
 #PART TWO: https://adventofcode.com/2021/day/4
-#DATE: 04/12/2021
+#DATE: 04/12/2020
 #ANSWER: 4624
 
 import numpy as np
