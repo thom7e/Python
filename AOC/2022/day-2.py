@@ -73,9 +73,6 @@ for play in rpc:
     player_1 = play.split(" ")[0]
     player_2 = play.split(" ")[1]
 
-    # RPC
-
-
     # DRAW
     if player_2 == "Y" and player_1 == "A":
         counter += 3

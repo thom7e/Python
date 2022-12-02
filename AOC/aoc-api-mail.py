@@ -31,8 +31,8 @@ def data_converting(url, cookie):
 table = data_converting(url,cookie)
 
 ## PARSING
-heutiger_tag = int(datetime.today().strftime("%d"))
-start = datetime(2021, 12, int(f"{heutiger_tag}"), 6, 0, 0)
+heutiger_tag = int(datetime.today().strftime("%d"))-1
+start = datetime(2022, 12, int(f"{heutiger_tag}"), 6, 0, 0)
 results=[]
 print("get members")
 for member in table["members"]:
@@ -62,6 +62,7 @@ for member in table["members"]:
     except KeyError:
         print(f"{name} hat heute keinen Part gschafft")
 
+print(results)
 print("sending mails to subscribers")
 def send_mail():
     with open("C:\\Users\\thoma\\OneDrive\\Python\\subscribers.txt") as subs:
@@ -107,9 +108,9 @@ def send_mail():
 send_mail()
 print("mails have been sent")
 
-schedule.every().day.at("05:55").do(lambda: send_mail())
+#schedule.every().day.at("05:55").do(lambda: send_mail())
 # planunterlage(source,destination)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+#while True:
+#    schedule.run_pending()
+#    time.sleep(1)
