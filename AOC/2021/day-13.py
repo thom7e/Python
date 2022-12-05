@@ -43,6 +43,7 @@ def part_1(G, fold):
                 counter += 1
     return counter
 
+print(G)
 print(f"PART I: {part_1(G,655)}")
 
 ########### PART II ##############
