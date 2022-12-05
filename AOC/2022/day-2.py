@@ -18,35 +18,35 @@ for play in rpc:
     player_1 = play.split(" ")[0]
     player_2 = play.split(" ")[1]
 
-    # RPC
+    # Rock Paper Scissor Definitions
     if player_2 == "X":
-        counter += 1
+        counter += 1 # if its rock
     if player_2 == "Y":
-        counter += 2
+        counter += 2 # if its paper
     if player_2 == "Z":
-        counter += 3
+        counter += 3 # if its scissor
 
-    # WIN LOSE DRAW
+    # WIN LOSE DRAW, possibilities
     if player_2 == "X" and player_1 == "A":
-        counter += 3
+        counter += 3 # draw
     if player_2 == "X" and player_1 == "B":
-        counter += 0
+        counter += 0 # Lose
     if player_2 == "X" and player_1 == "C":
-        counter += 6
+        counter += 6 # win
 
     if player_2 == "Y" and player_1 == "A":
-        counter += 6
+        counter += 6 # win
     if player_2 == "Y" and player_1 == "B":
-        counter += 3
+        counter += 3 # draw
     if player_2 == "Y" and player_1 == "C":
-        counter += 0
+        counter += 0 # Lose
 
     if player_2 == "Z" and player_1 == "A":
-        counter += 0
+        counter += 0 # Lose
     if player_2 == "Z" and player_1 == "B":
-        counter += 6
+        counter += 6 # win
     if player_2 == "Z" and player_1 == "C":
-        counter += 3
+        counter += 3 # draw
 
 print(f" PART I {counter}")
 
@@ -75,35 +75,35 @@ for play in rpc:
 
     # DRAW
     if player_2 == "Y" and player_1 == "A":
-        counter += 3
-        counter += 1
+        counter += 3 # draw because of Y
+        counter += 1 # Rock 1
     if player_2 == "Y" and player_1 == "B":
-        counter += 3
-        counter += 2
+        counter += 3 # draw because of Y
+        counter += 2 # Paper 2
     if player_2 == "Y" and player_1 == "C":
-        counter += 3
-        counter += 3
+        counter += 3 # draw because of Y
+        counter += 3 # Scissor 3
 
     # LOSE
     if player_2 == "X" and player_1 == "A":
-        counter += 0
-        counter += 3
+        counter += 0 # lose because of X
+        counter += 3 # Scissor 3
     if player_2 == "X" and player_1 == "B":
-        counter += 0
-        counter += 1
+        counter += 0 # lose because of X
+        counter += 1 # Rock 1
     if player_2 == "X" and player_1 == "C":
-        counter += 0
-        counter += 2
+        counter += 0 # lose because of X
+        counter += 2 # Paper 2
 
     #WIN
     if player_2 == "Z" and player_1 == "A":
-        counter += 6
-        counter += 2
+        counter += 6 # win because of Z
+        counter += 2 # Paper 2
     if player_2 == "Z" and player_1 == "B":
-        counter += 6
-        counter += 3
+        counter += 6 # win because of Z
+        counter += 3 # Scissor 3
     if player_2 == "Z" and player_1 == "C":
-        counter += 6
-        counter += 1
+        counter += 6 # win because of Z
+        counter += 1 # Rock 1
 
 print(f"PART II {counter}")
