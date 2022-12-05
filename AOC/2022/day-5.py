@@ -1,12 +1,49 @@
-# i excluded the stacks from the input
+import string
 with open("day-5.in") as f:
-    rpc = f.read().splitlines()
+    raw = f.read().split("\n\n")
 
-# and wrote it in a seperate file:
+commands = raw[1].splitlines()
+stackz = raw[0].splitlines()
 
-with open("day-5-stacks.in") as c:
-    stacks = c.read().splitlines()
+def parse_stacks():
 
+    capitals = list(string.ascii_uppercase)
+    all_stacks = []
+
+    for row in stackz:
+        index = 1
+        stack = []
+        while index < 35:
+            if len(row) <= 31:
+                if index <= 29:
+                    stack.append(row[index])
+                    index += 4
+
+                else:
+                    stack.append(" ")
+                    break
+            else:
+                stack.append(row[index])
+                index += 4
+
+        all_stacks.append(stack)
+
+    stacks_sorted = []
+    index = 0
+    for stacks in range(len(all_stacks[:-1])+1):
+
+        for sort_stacks in all_stacks:
+            if str(sort_stacks[stacks][0]) in ["1","2","3","4","5","6","7","8","9"]:
+                stacks_sorted.append(";")
+            if str(sort_stacks[stacks][0]) in capitals:
+                stacks_sorted.append(f"{str(sort_stacks[stacks][0])},")
+
+    parsed_stacks =''.join(stacks_sorted).split(";")
+
+    return parsed_stacks
+
+
+stacks = parse_stacks()
 
 def part_1():
         # get the different stacks, so i can get it by the indices
@@ -16,7 +53,7 @@ def part_1():
 
 
         # check the input for the actions and movements
-        for actions in rpc:
+        for actions in commands:
             action_1 = actions.split(" ")[1] # amount
             action_2 = actions.split(" ")[3] # stack where it comes from
             action_3 = actions.split(" ")[5] # stack where its moved to
@@ -51,7 +88,7 @@ def part_2():
         stack.append(st.split(","))
 
     # check the input for the actions and movements
-    for actions in rpc:
+    for actions in commands:
         action_1 = actions.split(" ")[1]  # amount
         action_2 = actions.split(" ")[3]  # stack where it comes from
         action_3 = actions.split(" ")[5]  # stack where its moved to
