@@ -29,7 +29,6 @@ def parse_stacks():
         all_stacks.append(stack)
 
     stacks_sorted = []
-    index = 0
     for stacks in range(len(all_stacks[:-1])+1):
 
         for sort_stacks in all_stacks:
