@@ -22,30 +22,23 @@ visible_trees = []
 def part_I(input):
     trees = get_grid(input)
     visible_edges = ((len(trees[0]) - 2) * 2 + len(trees[0:, 0]) * 2)
-
     visible_trees = []
     for inner_col in range(1,len(trees[0:,0])-1):
         for inner_row in range(1,len(trees[0])-1):
-            for check in range(len(trees)):## row right
+            for check in range(len(trees)):
                 if trees[inner_col, inner_row] > np.max(trees[inner_col,:inner_row]):
-                    visible_trees.append((inner_col, inner_row))#,"nach links"))#, trees[inner_col, inner_row], ">", [x for x in (trees[inner_col,:inner_row])]))
-                    break
-                else:
-                    break
-            for check in range(len(trees)): ## row left
-                if trees[inner_col, inner_row] > np.max(trees[inner_col,inner_row+1:]):
                     visible_trees.append((inner_col, inner_row))
                     break
-                else:
-                    break
-            for check in range(len(trees)): ## column nach oben
-                if trees[inner_col,inner_row] > np.max(trees[:inner_col,inner_row]):
+
+                elif trees[inner_col, inner_row] > np.max(trees[inner_col,inner_row+1:]):
                     visible_trees.append((inner_col, inner_row))
                     break
-                else:
+
+                elif trees[inner_col,inner_row] > np.max(trees[:inner_col,inner_row]):
+                    visible_trees.append((inner_col, inner_row))
                     break
-            for check in range(len(trees)): ## column nach unten
-                if trees[inner_col,inner_row] > np.max(trees[inner_col+1:,inner_row]):
+
+                elif trees[inner_col,inner_row] > np.max(trees[inner_col+1:,inner_row]):
                     visible_trees.append((inner_col, inner_row))
                     break
                 else:
