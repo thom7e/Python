@@ -1,3 +1,7 @@
+import numpy as np
+import sys
+np.set_printoptions(threshold=sys.maxsize)
+
 with open("day-10.in") as d:
     inp = d.read().splitlines()
 
@@ -15,7 +19,7 @@ werte = []
 while True:
     counter += 1
     cycle += 1
-    print(cycle, x)
+    werte.append((cycle,x))
     for index,cmd in enumerate(inp):
         if cmd.split(" ")[0] == "noop":
 
@@ -33,28 +37,63 @@ while True:
 
     #print("CYCLE", cycle,counter)
     #print("x ist :", x)
-    if cycle == cycle_1 or cycle == cycle_1-1:
-        #print("20",x,x*cycle_1)
-        werte.append(x*cycle_1)
 
-    elif cycle == cycle_2 or cycle == cycle_2-1:
-        #print("60:",x,cycle_2*x)
-        werte.append(x * cycle_2)
-    elif cycle == cycle_3 or cycle == cycle_3-1:
-        #print("100:", x,cycle_3*x)
-        werte.append(x * cycle_3)
-    elif cycle == cycle_4 or cycle == cycle_4-1:
-        #print("140:", x,cycle_4*x)
-        werte.append(x * cycle_4)
-    elif cycle == cycle_5 or cycle == cycle_5-1:
-        #print("180:", x,cycle_5*x)
-        werte.append(x * cycle_5)
-    elif cycle == cycle_6 or cycle == cycle_6-1:
-        #print("220:", x,cycle_6*x)
-        werte.append(x * cycle_6)
 
-    if cycle == 221:
+    if cycle == 240:
         break
 
+summe = []
+for k in werte:
+    #print(k[1],k[0],k)
+    if k[0] == cycle_1 or k[0] == cycle_2 or k[0] == cycle_3 or k[0] ==cycle_4 or k[0]== cycle_5 or k[0] == cycle_6:
+        summe.append(k[1]*k[0])
+print("P1 ",sum(summe))
 
-print(sum(set(werte)))
+
+grid = np.zeros((7,42),dtype=str)
+print(grid)
+#print(werte)
+row = 0
+col = 1
+l=0
+for i in werte:
+
+    sprite = [i[1]-1+l,i[1]+l,i[1]+1+l]
+    crt = i[0]-1
+    cycle = i[0]
+    #print("cycle:",i[0],"CRT",i[0]-1,"sprite",sprite)
+    #print(row,col)
+    if crt in sprite:
+        print(row,col,"#")
+        grid[row,col] = "#"
+    else:
+        grid[row, col] = "."
+        print(row, col, ".")
+    col += 1
+    if int(cycle) % 40 == 0:
+        row += 1
+        col = 0
+        l += 40
+    #(row)
+
+
+print(grid[0,0])
+print(grid[1,0])
+#l = 39%39
+#print(l)
+print(grid[0:6,0:5])
+print("\n\n")
+print(grid[0:6,5:10])
+print("\n\n")
+print(grid[0:6,10:15])
+print("\n\n")
+print(grid[0:6,15:20])
+print("\n\n")
+print(grid[0:6,20:25])
+print("\n\n")
+print(grid[0:6,25:30])
+print("\n\n")
+print(grid[0:6,30:35])
+print("\n\n")
+print(grid[0:6,35:40])
+print("\n\n")
