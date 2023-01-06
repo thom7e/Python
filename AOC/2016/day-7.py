@@ -1,10 +1,11 @@
 import hashlib
 
+input = "ugkcyxxp"
 def part_1():
     pwd = []
     counter = 0
     for number in range(0,99999999):
-        string = f"ugkcyxxp{number}"
+        string = f"{input}{number}"
         result = hashlib.md5(string.encode())
         if result.hexdigest()[0:5] == "00000":
             pwd.append(result.hexdigest()[5])
@@ -16,7 +17,7 @@ def part_2():
     pwd = []
     already_filled = []
     for number in range(0,99999999):
-        string = f"ugkcyxxp{number}"
+        string = f"{input}{number}"
         result = hashlib.md5(string.encode())
         if result.hexdigest()[0:5] == "00000":
             if result.hexdigest()[5] in ["0","1","2","3","4","5","6","7"]:
