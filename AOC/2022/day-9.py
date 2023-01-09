@@ -1,94 +1,42 @@
 import numpy as np
-import pandas as pd
-import sys
-
-#np.set_printoptions(threshold=np.inf)
-
 
 with open("day-9.in") as d:
     inp = d.read().splitlines()
 
+def adjust(head,tail):
+    check_x = (head[0]-tail[0])
+    check_y = (head[1]-tail[1])
+    if abs(check_x)<=1 and abs(check_y)<=1:
+        # ok
+        pass
+    elif abs(check_x)>=2 and abs(check_y)>=2:
+        #2       2       2
+        # 1   ->  1   ->  .   -> 2
+        #  head       .head      1head     1head
+        tail = (head[0]-1 if tail[0]<head[0] else head[0]+1, head[1]-1 if tail[1]<head[1] else head[1]+1)
+    elif abs(check_x)>=2:
+        # tail     tail       .
+        #  head ->  .head  ->  tailhead
+        tail = (head[0]-1 if tail[0]<head[0] else head[0]+1, head[1])
+    elif abs(check_y)>=2:
+        tail = (head[0], head[1]-1 if tail[1]<head[1] else head[1]+1)
+    return tail
 
-x_head,y_head = 0,0
-x_tail,y_tail = 0,0
-start = 0
-
-grid = np.zeros((20,20),dtype=str)
-#grid_x,grid_y = 300,300
-#grid[grid_x, grid_y] = "x"
-
-s = (0,0)
-H = (x_head,y_head)
-T = (x_tail,y_tail)
-visited = [s]
-for index,directions in enumerate(inp):
-    dir = directions[0]
-    amount = int(directions[1:])
-    print(f"HEAD {x_head, y_head}, TAIL {x_tail, y_tail}")
-    # Richtung
-
-    if dir == "R":
-        #print(dir, (x_head, y_head), (x_tail, y_tail))
-        x_check, y_check = x_head, y_head
-        y_tail = y_head
-        for k in range(1,amount+1):
-            x_head += 1
-            if not k < 1 and not k == amount:
-                x_tail += 1
-            print((x_tail, y_tail), (x_check, y_check))
-            if not (x_tail, y_tail) == (x_check, y_check):
-                print(dir, x_tail, y_tail, x_head, y_head)
-
-
-    elif dir == "U":
-        #print(dir, (x_head, y_head), (x_tail, y_tail))
-        x_check, y_check = x_head, y_head
-        x_tail = x_head
-        #x_tail = x_head
-        for k in range(1,amount+1):
-            y_head += 1
-            if not k < 1 and not k == amount:
-                y_tail += 1
-            if not (x_tail, y_tail) == (x_check, y_check):
-                print(dir, x_tail, y_tail, x_head, y_head)
-
-
-    ### NEGATIVE
-
-    elif dir == "L":
-        #print(dir, (x_head, y_head), (x_tail, y_tail))
-        x_check, y_check = x_head, y_head
-        y_tail = y_head
-        for k in range(1,amount+1):
-            x_head -= 1
-            if not k < 1 and not k == amount:
-                x_tail -= 1
-            if not (x_tail, y_tail) == (x_check, y_check):
-                print(dir, x_tail, y_tail, x_head, y_head)
-
-
-
-            # print((x_head, y_head), (x_tail, y_tail))
-
-    elif dir == "D":
-        #print(dir,(x_head,y_head),(x_tail,y_tail))
-        x_check,y_check = x_head,y_head
-        #x_tail = x_head
-        x_tail = x_head
-        for k in range(1,amount+1):
-            y_head -= 1
-            if not k < 1 and not k == amount:
-                y_tail -= 1
-
-            if not (x_tail,y_tail) == (x_check,y_check):
-                print(dir, x_tail, y_tail, x_head, y_head)
-
-
-
-
-
-
-print(visited)
-print(len(set(visited)))
-
-print([x for x in range(1,1)])
+head = (0,0)
+tail = [(0,0) for _ in range(9)]
+DR = {'L': 0, 'U': -1, 'R': 0, 'D': 1}
+DC = {'L': -1, 'U': 0, 'R': 1, 'D': 0}
+part_1 = [tail[0]]
+part_2 = [tail[8]]
+for line in inp:
+    dir,amount = line.split()
+    amount = int(amount)
+    for _ in range(amount):
+        head = (head[0] + DR[dir], head[1]+DC[dir])
+        tail[0] = adjust(head, tail[0])
+        for i in range(1, 9):
+            tail[i] = adjust(tail[i-1], tail[i])
+        part_1.append(tail[0])
+        part_2.append(tail[8])
+print("PART I: ",len(set(part_1)))
+print("PART II: ",len(set(part_2)))
