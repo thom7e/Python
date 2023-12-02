@@ -1,0 +1,42 @@
+import timeit
+start = timeit.default_timer()
+import re
+# MyCode
+with open("in", "r") as file:
+    lines = file.read().splitlines()
+    res = 0
+    for id, line in enumerate(lines):
+        possible = True
+        # games = re.findall('\d+', line.split(':')[-1])
+        games_red = re.findall('\d+ red', line.split(':')[-1])
+        games_blue = re.findall('\d+ blue', line.split(':')[-1])
+        games_green = re.findall('\d+ green', line.split(':')[-1])
+
+        for game_red in games_red:
+
+            if int(game_red.split(' ')[0]) > 12:
+
+                possible = False
+        for game_green in games_green:
+
+            if int(game_green.split(' ')[0]) > 13:
+                possible = False
+        for game_blue in games_blue:
+
+            if int(game_blue.split(' ')[0]) > 14:
+                possible = False
+
+        if possible:
+            res += id+1
+
+
+
+# BetterCode / FasterCode
+# with open('in', 'r') as file:
+
+# Part 2:  x:xx  //  Platz 1: x:xx  // Platz 100: x:xx  //  xxxxx
+# Part 1:  x:xx  //  Platz 1: x:xx  // Platz 100: x:xx  //  xxxxx
+# Runtime MyCode:
+# Runtime Prettier / Faster Code::  xxxxxx s
+stop = timeit.default_timer()
+print("# Runtime: ", stop - start, "s")
